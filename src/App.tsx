@@ -22,23 +22,46 @@ import {
 
 // --- Components ---
 
-const Button = ({ children, className = "", primary = false, onClick }: { children: React.ReactNode, className?: string, primary?: boolean, onClick?: () => void }) => (
-  <motion.button
-    whileHover={{ scale: 1.05 }}
-    whileTap={{ scale: 0.95 }}
-    onClick={onClick}
-    className={`relative group px-8 py-5 rounded-full font-black text-xl transition-all shadow-2xl overflow-hidden ${
-      primary 
-        ? "bg-premium-red text-white shadow-premium-red/30" 
-        : "bg-premium-gold text-black shadow-premium-gold/30"
-    } ${className}`}
-  >
-    <span className="relative z-10 flex items-center justify-center gap-2">
-      {children}
-    </span>
-    <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-  </motion.button>
-);
+const Button = ({ children, className = "", primary = false, onClick, href }: { children: React.ReactNode, className?: string, primary?: boolean, onClick?: () => void, href?: string }) => {
+  const content = (
+    <>
+      <span className="relative z-10 flex items-center justify-center gap-2">
+        {children}
+      </span>
+      <div className="absolute inset-0 bg-white/20 translate-y-full md:group-hover:translate-y-0 transition-transform duration-300" />
+    </>
+  );
+
+  const classes = `relative group px-8 py-5 rounded-full font-black text-xl transition-all shadow-2xl overflow-hidden inline-block text-center ${
+    primary 
+      ? "bg-premium-red text-white shadow-premium-red/30" 
+      : "bg-premium-gold text-black shadow-premium-gold/30"
+  } ${className}`;
+
+  if (href) {
+    return (
+      <motion.a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        whileTap={{ scale: 0.95 }}
+        className={classes}
+      >
+        {content}
+      </motion.a>
+    );
+  }
+
+  return (
+    <motion.button
+      whileTap={{ scale: 0.95 }}
+      onClick={onClick}
+      className={classes}
+    >
+      {content}
+    </motion.button>
+  );
+};
 
 interface AccordionProps {
   question: string;
@@ -351,7 +374,11 @@ export default function App() {
               </div>
             </div>
             
-            <Button primary className="w-full max-w-md py-8 text-2xl" onClick={() => window.open('https://pay.hotmart.com/Q98272388S?checkoutMode=10&hideBillet=1', '_blank')}>
+            <Button 
+              primary 
+              className="w-full max-w-md py-8 text-2xl" 
+              href="https://pay.hotmart.com/Q98272388S?checkoutMode=10&hideBillet=1"
+            >
               ¡SÍ, QUIERO MI ACCESO! <ArrowRight size={28} />
             </Button>
             
