@@ -85,18 +85,6 @@ export default function App() {
     }
   };
 
-  useEffect(() => {
-    // Inject Vturb Script
-    const script = document.createElement("script");
-    script.src = "https://scripts.converteai.net/1b23d824-f7d5-46ac-8edc-700038ffb33d/players/69dfda7a31321021b9c43edb/v4/player.js";
-    script.async = true;
-    document.head.appendChild(script);
-
-    return () => {
-      document.head.removeChild(script);
-    };
-  }, []);
-
   return (
     <div className="min-h-screen bg-premium-black text-white font-sans selection:bg-premium-gold selection:text-black overflow-x-hidden">
       
@@ -153,9 +141,14 @@ export default function App() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, type: "spring", damping: 20 }}
-            className="relative mx-auto mb-16 rounded-[2rem] md:rounded-[3rem] overflow-hidden border-4 border-premium-red/20 shadow-[0_0_80px_rgba(139,0,0,0.2)] bg-black aspect-[9/16] max-w-[300px] md:max-w-[400px]"
+            className="relative mx-auto mb-16 rounded-[2rem] md:rounded-[3rem] overflow-hidden border-4 border-premium-red/20 shadow-[0_0_80px_rgba(139,0,0,0.2)] bg-black aspect-[9/16] max-w-[300px] md:max-w-[400px] flex items-center justify-center"
           >
-            <div id="vid-69dfda7a31321021b9c43edb" style={{ display: 'block', margin: '0 auto', width: '100%' }}></div>
+            <div 
+              className="w-full h-full"
+              dangerouslySetInnerHTML={{ 
+                __html: `<vturb-smartplayer id="vid-69dfda7a31321021b9c43edb" style="display: block; margin: 0 auto; width: 100%; height: 100%;"></vturb-smartplayer>` 
+              }} 
+            />
           </motion.div>
 
           <motion.div
