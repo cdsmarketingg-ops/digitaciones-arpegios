@@ -85,6 +85,17 @@ export default function App() {
     }
   };
 
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://scripts.converteai.net/1b23d824-f7d5-46ac-8edc-700038ffb33d/players/69dfda7a31321021b9c43edb/v4/player.js";
+    script.async = true;
+    document.head.appendChild(script);
+
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-premium-black text-white font-sans selection:bg-premium-gold selection:text-black overflow-x-hidden">
       
@@ -146,7 +157,7 @@ export default function App() {
             <div 
               className="w-full h-full"
               dangerouslySetInnerHTML={{ 
-                __html: `<vturb-smartplayer id="vid-69dfda7a31321021b9c43edb" style="display: block; margin: 0 auto; width: 100%; height: 100%;"></vturb-smartplayer>` 
+                __html: `<vturb-smartplayer id="vid-69dfda7a31321021b9c43edb" style="display: block; margin: 0 auto; width: 100%; height: 100%; max-width: 400px;"></vturb-smartplayer>` 
               }} 
             />
           </motion.div>
@@ -340,7 +351,7 @@ export default function App() {
               </div>
             </div>
             
-            <Button primary className="w-full max-w-md py-8 text-2xl" onClick={() => window.open('https://pay.hotmart.com/Q98272388S?off=rdufy5x6&checkoutMode=10&hideBillet=1', '_blank')}>
+            <Button primary className="w-full max-w-md py-8 text-2xl" onClick={() => window.open('https://pay.hotmart.com/Q98272388S?checkoutMode=10&hideBillet=1', '_blank')}>
               ¡SÍ, QUIERO MI ACCESO! <ArrowRight size={28} />
             </Button>
             
