@@ -340,7 +340,7 @@ export default function App() {
               </div>
             </div>
             
-            <Button primary className="w-full max-w-md py-8 text-2xl" onClick={() => window.open('https://pay.hotmart.com/Q98272388S?off=rdufy5x6&checkoutMode=10', '_blank')}>
+            <Button primary className="w-full max-w-md py-8 text-2xl" onClick={() => window.open('https://pay.hotmart.com/Q98272388S?off=rdufy5x6&checkoutMode=10&hideBillet=1', '_blank')}>
               ¡SÍ, QUIERO MI ACCESO! <ArrowRight size={28} />
             </Button>
             
