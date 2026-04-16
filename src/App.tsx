@@ -17,7 +17,11 @@ import {
   Star,
   Lock,
   Music,
-  ArrowRight
+  ArrowRight,
+  Gift,
+  Ear,
+  RefreshCw,
+  Handshake
 } from 'lucide-react';
 
 // --- Components ---
@@ -340,6 +344,105 @@ export default function App() {
         </div>
       </section>
 
+      {/* --- Bonuses Section --- */}
+      <section className="py-32 px-6 relative overflow-hidden bg-black">
+        <div className="max-w-6xl mx-auto relative z-10">
+          <div className="text-center mb-20">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-premium-red/20 border border-premium-red/50 text-premium-red text-xs font-black uppercase tracking-[0.2em] mb-6"
+            >
+              <Gift size={14} className="animate-bounce" />
+              Súper Bono
+            </motion.div>
+            <h2 className="text-4xl md:text-6xl font-serif font-bold uppercase tracking-tighter mb-6">
+              REGALOS <span className="text-premium-gold italic">EXCLUSIVOS</span> PARA TI
+            </h2>
+            <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto font-light">
+              Al inscribirte hoy, no solo te llevas el curso completo, sino también estos bonos diseñados para acelerar tu maestría en el teclado.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            {/* Bonus 1 */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative group h-full"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-premium-red/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-[3rem]"></div>
+              <div className="relative p-10 md:p-12 rounded-[3rem] bg-[#0A0A0A] border border-white/5 group-hover:border-premium-red/30 transition-all duration-500 flex flex-col h-full shadow-2xl">
+                <div className="flex items-center justify-between mb-8">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-premium-red to-red-900 flex items-center justify-center shadow-lg shadow-premium-red/20">
+                    <Ear className="text-white" size={32} />
+                  </div>
+                  <span className="text-4xl font-serif italic text-white/10 font-black group-hover:text-premium-red/20 transition-colors">01</span>
+                </div>
+                
+                <h3 className="text-2xl md:text-3xl font-black mb-6 uppercase tracking-tighter leading-tight">
+                  El Secreto de los <span className="text-premium-red">Grandes Músicos</span> para Tocar de Oído
+                </h3>
+                
+                <p className="text-gray-400 text-lg leading-relaxed mb-auto">
+                  Aquí voy a revelar el secreto que los músicos profesionales guardan bajo siete llaves y usan para desbloquear la independencia auditiva.
+                </p>
+
+                <div className="mt-10 pt-10 border-t border-white/5 flex items-center gap-6">
+                  <div className="flex -space-x-3">
+                    <div className="w-10 h-10 rounded-full bg-premium-red/10 border border-premium-red/30 flex items-center justify-center">
+                      <Lock size={16} className="text-premium-red" />
+                    </div>
+                  </div>
+                  <span className="text-xs font-black uppercase tracking-widest text-premium-red">Contenido Reservado</span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Bonus 2 */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative group h-full"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-premium-gold/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-[3rem]"></div>
+              <div className="relative p-10 md:p-12 rounded-[3rem] bg-[#0A0A0A] border border-white/5 group-hover:border-premium-gold/30 transition-all duration-500 flex flex-col h-full shadow-2xl">
+                <div className="flex items-center justify-between mb-8">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-premium-gold to-yellow-900 flex items-center justify-center shadow-lg shadow-premium-gold/20">
+                    <RefreshCw className="text-black" size={32} />
+                  </div>
+                  <span className="text-4xl font-serif italic text-white/10 font-black group-hover:text-premium-gold/20 transition-colors">02</span>
+                </div>
+                
+                <h3 className="text-2xl md:text-3xl font-black mb-6 uppercase tracking-tighter leading-tight">
+                  Actualizaciones <span className="text-premium-gold">Gratuitas</span> de por Vida
+                </h3>
+                
+                <p className="text-gray-400 text-lg leading-relaxed mb-auto">
+                  Cada vez que se actualice el contenido con nuevos sonidos y nuevas clases, los recibirás de forma gratuita en tu área de miembros. Siempre estarás a la vanguardia.
+                </p>
+
+                <div className="mt-10 pt-10 border-t border-white/5 flex items-center gap-6">
+                  <div className="flex -space-x-4">
+                    <div className="w-10 h-10 rounded-full bg-premium-gold/10 border border-premium-gold/30 flex items-center justify-center">
+                      <Handshake size={16} className="text-premium-gold" />
+                    </div>
+                  </div>
+                  <span className="text-xs font-black uppercase tracking-widest text-premium-gold">Acceso Ilimitado</span>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Decorative elements */}
+        <div className="absolute top-0 right-0 w-[50vw] h-[50vw] bg-premium-red/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2"></div>
+        <div className="absolute bottom-0 left-0 w-[40vw] h-[40vw] bg-premium-gold/5 blur-[120px] rounded-full translate-y-1/2 -translate-x-1/2"></div>
+      </section>
+
       {/* --- Offer Section --- */}
       <section id="oferta" className="py-24 px-6 bg-premium-black relative overflow-hidden">
         <div className="max-w-4xl mx-auto text-center relative z-10">
@@ -524,25 +627,6 @@ export default function App() {
           Eliab Campos Teclas – @Todos los derechos reservados 2025
         </p>
       </footer>
-
-      {/* --- Sticky CTA Mobile --- */}
-      <motion.div 
-        initial={{ y: 100 }}
-        animate={{ y: 0 }}
-        transition={{ delay: 2 }}
-        className="md:hidden fixed bottom-0 left-0 w-full p-4 bg-black/90 backdrop-blur-xl border-t border-white/10 z-50 flex items-center justify-between gap-4"
-      >
-        <div className="flex flex-col">
-          <span className="text-[10px] text-gray-500 uppercase font-bold">Acceso Total</span>
-          <span className="text-xl font-black text-premium-gold">U$13,99</span>
-        </div>
-        <button 
-          onClick={scrollToOffer}
-          className="flex-1 bg-premium-red text-white font-black py-4 rounded-2xl text-sm uppercase tracking-tight shadow-lg active:scale-95 transition-transform"
-        >
-          ¡INSCRIBIRME YA!
-        </button>
-      </motion.div>
 
     </div>
   );
