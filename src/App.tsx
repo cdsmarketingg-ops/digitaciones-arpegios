@@ -21,7 +21,8 @@ import {
   Gift,
   Ear,
   RefreshCw,
-  Handshake
+  Handshake,
+  MoveHorizontal
 } from 'lucide-react';
 
 // --- Components ---
@@ -160,7 +161,7 @@ export default function App() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold leading-[1.1] mb-8 tracking-tight"
+            className="text-3xl md:text-6xl lg:text-7xl font-serif font-bold leading-[1.1] mb-8 tracking-tight"
           >
             TRANSFORMA TU MANERA DE TOCAR Y <span className="text-premium-red italic">DALE VIDA</span> A TUS CANCIONES
           </motion.h2>
@@ -169,9 +170,9 @@ export default function App() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
-            className="text-lg md:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto font-light leading-relaxed"
+            className="text-base md:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto font-light leading-relaxed"
           >
-            Domina Arpegios y Digitaciones Profesionales con el método que te permitirá sonar como un experto en tiempo récord.
+            ¿Llevas años tocando y sigues sonando como principiante? El problema no eres tú — son las digitaciones y arpegios que nadie te explicó bien.
           </motion.p>
 
           {/* Vertical Video Container */}
@@ -216,6 +217,34 @@ export default function App() {
                 <span className="w-1 h-1 bg-gray-700 rounded-full"></span>
                 Acceso Vitalicio
               </div>
+
+              {/* Subtle Authority Snippet for Cold Traffic */}
+              <motion.div 
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1 }}
+                className="mt-8 pt-8 border-t border-white/5 flex items-center gap-4 text-left max-w-sm mx-auto"
+              >
+                <div className="relative shrink-0">
+                  <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-premium-gold shadow-2xl relative z-10">
+                    <img 
+                      src="https://eliabcamposteclas.com/wp-content/uploads/2025/02/PERFIL-ELIAB.jpeg" 
+                      alt="Eliab Campos"
+                      className="w-full h-full object-cover"
+                      referrerPolicy="no-referrer"
+                    />
+                  </div>
+                  <div className="absolute -bottom-1 -right-1 bg-premium-gold text-black rounded-full p-1 z-20 shadow-lg">
+                    <CheckCircle2 size={12} fill="currentColor" className="text-black" />
+                  </div>
+                </div>
+                <div>
+                  <p className="text-[10px] text-premium-gold font-black uppercase tracking-[0.2em] mb-1">Autoridad en el tema</p>
+                  <p className="text-sm text-gray-400 font-medium leading-tight">
+                    <span className="text-white font-bold">Eliab Campos:</span> +15 años de experiencia y más de 2.500 alumnos transformados con este método.
+                  </p>
+                </div>
+              </motion.div>
             </div>
           </motion.div>
         </div>
@@ -441,6 +470,70 @@ export default function App() {
         {/* Decorative elements */}
         <div className="absolute top-0 right-0 w-[50vw] h-[50vw] bg-premium-red/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2"></div>
         <div className="absolute bottom-0 left-0 w-[40vw] h-[40vw] bg-premium-gold/5 blur-[120px] rounded-full translate-y-1/2 -translate-x-1/2"></div>
+      </section>
+
+      {/* --- Social Proof Carousel --- */}
+      <section className="py-24 overflow-hidden bg-black/50 border-y border-white/5 relative">
+        <div className="max-w-6xl mx-auto px-6 mb-12 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <span className="text-premium-red font-black uppercase tracking-[0.3em] text-xs mb-4 block">Resultados Reales</span>
+            <h2 className="text-3xl md:text-5xl font-serif font-bold uppercase tracking-tighter">
+              LO QUE DICEN NUESTROS <span className="text-premium-gold italic">ALUMNOS</span>
+            </h2>
+          </motion.div>
+        </div>
+
+        <div className="relative flex">
+          {/* Draggable and Auto-scrolling Track */}
+          <motion.div 
+            className="flex gap-6 px-6 cursor-grab active:cursor-grabbing shrink-0 animate-scroll-infinite pause-animation"
+            drag="x"
+            dragConstraints={{ left: -3000, right: 0 }}
+            whileTap={{ cursor: "grabbing" }}
+          >
+            {/* Duplicate images to create a seamless loop */}
+            {[...Array(6)].map((_, i) => (
+              <React.Fragment key={i}>
+                {[
+                  "https://eliabcamposteclas.com/wp-content/uploads/2026/04/PROVA-1.jpg",
+                  "https://eliabcamposteclas.com/wp-content/uploads/2026/04/PROVA-2.jpg",
+                  "https://eliabcamposteclas.com/wp-content/uploads/2026/04/PROVA-3.jpg"
+                ].map((src, index) => (
+                  <div 
+                    key={`${i}-${index}`}
+                    className="w-[340px] md:w-[400px] shrink-0 rounded-2xl md:rounded-3xl overflow-hidden border border-white/10 shadow-2xl relative"
+                  >
+                    <img 
+                      src={src} 
+                      alt={`Testimonio ${index + 1}`}
+                      className="w-full h-auto object-cover pointer-events-none"
+                      referrerPolicy="no-referrer"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+                  </div>
+                ))}
+              </React.Fragment>
+            ))}
+          </motion.div>
+        </div>
+
+        {/* Gradient Overlays for smooth edges */}
+        <div className="absolute top-0 left-0 w-20 md:w-40 h-full bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
+        <div className="absolute top-0 right-0 w-20 md:w-40 h-full bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
+
+        {/* Subtle Drag Indicator */}
+        <div className="mt-12 flex justify-center items-center gap-3 text-gray-500/50">
+          <div className="h-px w-8 bg-gradient-to-r from-transparent to-gray-500/30"></div>
+          <div className="flex items-center gap-2 text-[10px] uppercase font-black tracking-[0.3em] animate-pulse">
+            <MoveHorizontal size={14} />
+            <span>Desliza para explorar</span>
+          </div>
+          <div className="h-px w-8 bg-gradient-to-l from-transparent to-gray-500/30"></div>
+        </div>
       </section>
 
       {/* --- Offer Section --- */}
