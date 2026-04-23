@@ -204,7 +204,7 @@ export default function App() {
               <div className="flex flex-col items-center">
                 <span className="text-gray-500 line-through text-lg">De U$47,00</span>
                 <div className="text-5xl md:text-7xl font-black text-premium-gold">
-                  U$13,<span className="text-white">99</span>
+                  U$9,<span className="text-white">90</span>
                 </div>
               </div>
               
@@ -565,7 +565,7 @@ export default function App() {
               <div className="flex flex-col items-center">
                 <span className="text-gray-500 line-through text-xl">De U$47,00</span>
                 <div className="text-6xl md:text-8xl font-black text-white">
-                  U$13,<span className="text-premium-gold">99</span>
+                  U$9,<span className="text-premium-gold">90</span>
                 </div>
               </div>
             </div>
@@ -573,7 +573,7 @@ export default function App() {
             <Button 
               primary 
               className="w-full max-w-md py-8 text-2xl" 
-              href="https://pay.hotmart.com/Q98272388S?checkoutMode=10&hideBillet=1"
+              href="https://pay.hotmart.com/Q98272388S?off=3rv8oow5&checkoutMode=10&hideBillet=1"
             >
               ¡SÍ, QUIERO MI ACCESO! <ArrowRight size={28} />
             </Button>
@@ -673,7 +673,7 @@ export default function App() {
             
             <div className="flex flex-col items-center">
               <p className="text-gray-500 uppercase tracking-widest text-sm font-bold mb-2">Oferta por tiempo limitado</p>
-              <p className="text-premium-gold font-black text-5xl md:text-6xl">U$13,99</p>
+              <p className="text-premium-gold font-black text-5xl md:text-6xl">U$9,90</p>
             </div>
           </div>
         </div>
